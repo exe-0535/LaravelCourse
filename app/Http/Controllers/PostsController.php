@@ -63,4 +63,11 @@ class PostsController extends Controller
     {
         //
     }
+
+    public function contact($id, $name) {
+
+        // return view('contact', array('id' => $id));
+        return view('contact', compact('id', 'name'));
+
+    }
 }
