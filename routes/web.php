@@ -42,4 +42,6 @@ Route::get('/', function () {
 // }));
 
 // Controller "PostsController" routed to /post route"
-Route::get('/post/{id}', [PostsController::class, 'index']);
+// Route::get('/post/{id}', [PostsController::class, 'index']);
+
+Route::resource('posts', PostsController::class);

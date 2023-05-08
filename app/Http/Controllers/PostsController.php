@@ -9,9 +9,8 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index()
     {
-        return "The number is " . $id;
         //
     }
 
@@ -21,6 +20,8 @@ class PostsController extends Controller
     public function create()
     {
         //
+
+        return "I am the method that creates stuff";
     }
 
     /**
@@ -36,7 +37,7 @@ class PostsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return "this is the show method";
     }
 
     /**
