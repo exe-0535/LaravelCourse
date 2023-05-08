@@ -64,10 +64,11 @@ class PostsController extends Controller
         //
     }
 
-    public function contact($id, $name) {
+    public function contact() {
+        $people = ['Edwin', 'John', 'James', 'Peter', 'Maria'];
 
         // return view('contact', array('id' => $id));
-        return view('contact', compact('id', 'name'));
+        return view('contact', compact(('people')));
 
     }
 }
