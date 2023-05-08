@@ -9,8 +9,9 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
+        return "The number is " . $id;
         //
     }
 
