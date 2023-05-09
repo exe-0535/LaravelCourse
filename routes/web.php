@@ -82,9 +82,39 @@ Route::get('/', function () {
     
 // });
 
-Route::get('/delete', function() {
+// Route::get('/delete', function() {
 
-    $deleted = DB::delete('DELETE FROM posts WHERE id = ?;', [1]);
+//     $deleted = DB::delete('DELETE FROM posts WHERE id = ?;', [1]);
 
-    return $deleted;
+//     return $deleted;
+// });
+
+
+//
+// ELOQUENT ORM
+//
+
+// These two routes underneath are both used to select/read a post with id number 4.
+
+// Route::get('/read', function() {
+
+//     // Gets all the record from the Posts table
+//     $posts = App\Models\Post::all();
+
+//     foreach($posts as $post) {
+//         if($post->id == 4) {
+//             echo $post->id . ". ";
+//             echo $post->title . "<br>";
+//         }
+//     }
+
+//     return;
+// });
+
+Route::get('/read', function() {
+
+    // Gets all the record from the Posts table
+    $post = App\Models\Post::find(4);
+
+    return $post->id . ". " . $post->title;
 });
