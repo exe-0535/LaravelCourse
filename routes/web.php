@@ -45,8 +45,46 @@ Route::get('/', function () {
 // Controller "PostsController" routed to /post route"
 // Route::get('/post/{id}', [PostsController::class, 'index']);
 
-Route::resource('posts', PostsController::class);
+// Route::resource('posts', PostsController::class);
 
-Route::get('/contact', [PostsController::class, 'contact']);
+// Route::get('/contact', [PostsController::class, 'contact']);
 
-Route::get('/dayonerecap/{id}', [DayOneRecap::class, 'index']);
+// Route::get('/dayonerecap/{id}', [DayOneRecap::class, 'index']);
+
+
+// 
+
+//
+// RAW SQL QUERIES
+//
+
+// Route::get('/insert', function() {
+
+//     DB::insert('INSERT INTO posts(title, content) VALUES (?, ?);', ['PHP with Laravel', 'Laravel is the best thing that has happened to PHP']);
+
+// });
+
+// Route::get('/read', function() {
+
+//     // Returns a class object (reference to data as object properties)
+//     $results =  DB::select('SELECT * FROM posts');
+
+//     foreach($results as $result) {
+//         echo $result->title;
+//     }
+// });
+
+// Route::get('/update', function() {
+
+//     $updated = DB::update('UPDATE posts SET title = "Updated title" WHERE id = ?;', [1]);
+
+//     return $updated;
+    
+// });
+
+Route::get('/delete', function() {
+
+    $deleted = DB::delete('DELETE FROM posts WHERE id = ?;', [1]);
+
+    return $deleted;
+});
