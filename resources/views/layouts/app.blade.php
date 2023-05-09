@@ -14,6 +14,9 @@
 
     @yield('content')
     </div>
+    <div>
+      @yield('dayonerecap')
+    </div>
 
     @yield('footer')
   </body>
