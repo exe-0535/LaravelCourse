@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DayOneRecap;
 use Illuminate\Support\Facades\Route;
 
 // to avoid pasting the same path all over again
@@ -47,3 +48,5 @@ Route::get('/', function () {
 Route::resource('posts', PostsController::class);
 
 Route::get('/contact', [PostsController::class, 'contact']);
+
+Route::get('/dayonerecap/{id}', [DayOneRecap::class, 'index']);
