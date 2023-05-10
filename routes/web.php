@@ -234,16 +234,28 @@ Route::get('/', function () {
 //
 
 
-// One to one relationship
-Route::get('/user/{id}/post', function($id) {
+// // One to one relationship
+// Route::get('/user/{id}/post', function($id) {
 
-    return User::find($id)->post->title;
+//     return User::find($id)->post->title;
 
-});
+// });
 
-// Inverse one to one relationship
-Route::get('/post/{id}/user', function($id) {
+// // Inverse one to one relationship
+// Route::get('/post/{id}/user', function($id) {
 
-    return Post::find($id)->user->name;
+//     return Post::find($id)->user->name;
+
+// });
+
+// One to many relationship
+Route::get('/posts', function() {
+
+    $user = User::find(1);
+    foreach($user->posts as $post) {
+
+        echo $post->title . "<br>";
+
+    }
 
 });
