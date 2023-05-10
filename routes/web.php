@@ -166,8 +166,15 @@ Route::get('/', function () {
 //     $post->save();
 // });
 
-Route::get('/create', function() {
+// Route::get('/create', function() {
 
-    Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
+//     Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
+
+// });
+
+Route::get('/update', function() {
+
+    Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'The Update Method', 'content'=>'Update method example content']);
+    
 
 });
