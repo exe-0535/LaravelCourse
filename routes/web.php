@@ -166,11 +166,11 @@ Route::get('/', function () {
 //     $post->save();
 // });
 
-// Route::get('/create', function() {
+Route::get('/create', function() {
 
-//     Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
+    Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
 
-// });
+});
 
 // Route::get('/update', function() {
 
@@ -180,16 +180,22 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/delete', function() {
+// Route::get('/delete', function() {
 
-    $post = Post::find(4);
+//     $post = Post::find(4);
 
-    $post->delete();
+//     $post->delete();
 
-});
+// });
 
-Route::get('/delete2', function() {
+// Route::get('/delete2', function() {
    
-   Post::destroy([6, 7]); 
+//    Post::destroy([6, 7]); 
+
+// });
+
+Route::get('/softdelete', function() {
+
+    Post::find(8)->delete();
 
 });
