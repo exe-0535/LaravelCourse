@@ -113,28 +113,56 @@ Route::get('/', function () {
 //     return;
 // });
 
-Route::get('/read', function() {
+// Route::get('/read', function() {
 
-    // Gets all the record from the Posts table
-    $post = App\Models\Post::find(4);
+//     // Gets all the record from the Posts table
+//     $post = App\Models\Post::find(4);
 
-    return $post->id . ". " . $post->title;
-});
+//     return $post->id . ". " . $post->title;
+// });
 
-Route::get('/findwhere', function() {
-
-
-    $posts = Post::where('id', 4)->orderBy('id', 'desc')->take(1)->get();
-    return $posts[0]->title;
-});
-
-Route::get('/findmore', function() {
+// Route::get('/findwhere', function() {
 
 
-    // $posts = Post::findOrFail(1);
-    // return $posts;
+//     $posts = Post::where('id', 4)->orderBy('id', 'desc')->take(1)->get();
+//     return $posts[0]->title;
+// });
 
-    $posts = Post::where('users_count', '<', 50)->firstOrFail();
-    return $posts;
+// Route::get('/findmore', function() {
 
-});
+
+//     // $posts = Post::findOrFail(1);
+//     // return $posts;
+
+//     $posts = Post::where('users_count', '<', 50)->firstOrFail();
+//     return $posts;
+
+// });
+
+
+// INSERTING DATA
+
+// // Inserting data
+// Route::get('/basicinsert', function() {
+
+//     $post = new Post;
+
+//     $post->title = 'New Eloquent title insert';
+//     $post->content = 'Eloquent inserted content';
+
+//     $post->save();
+
+// });
+
+// // Updating data
+
+// Route::get('/basicupdate', function() {
+
+//     $post = Post::find(4);
+
+//     $post->title = 'ID 4 Updated Title';
+//     $post->content = 'ID 4 Updated Content';
+
+//     $post->save();
+// });
+
