@@ -142,7 +142,7 @@ Route::get('/', function () {
 
 // INSERTING DATA
 
-// // Inserting data
+// Inserting data
 // Route::get('/basicinsert', function() {
 
 //     $post = new Post;
@@ -166,11 +166,11 @@ Route::get('/', function () {
 //     $post->save();
 // });
 
-Route::get('/create', function() {
+// Route::get('/create', function() {
 
-    Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
+//     Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
 
-});
+// });
 
 // Route::get('/update', function() {
 
@@ -194,8 +194,22 @@ Route::get('/create', function() {
 
 // });
 
-Route::get('/softdelete', function() {
+// Route::get('/softdelete', function() {
 
-    Post::find(8)->delete();
+//     Post::find(8)->delete();
+
+// });
+
+Route::get('/readsoftdelete', function() {
+
+    // $post = Post::find(8);
+
+    // return $post;
+
+    return Post::withTrashed()->where('id', 8)->get();
+
+    // withTrashed() returns all posts including trashed ones
+    // onlyTrashed() return only trashed posts
+
 
 });
