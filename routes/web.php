@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // to avoid pasting the same path all over again
 use App\Http\Controllers\PostsController;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -221,8 +222,28 @@ Route::get('/', function () {
 
 // });
 
-Route::get('/forcedelete', function() {
+// Route::get('/forcedelete', function() {
 
-    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+//     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+
+// });
+
+
+//
+//  Eloquent Relationships
+//
+
+
+// One to one relationship
+Route::get('/user/{id}/post', function($id) {
+
+    return User::find($id)->post->title;
+
+});
+
+// Inverse one to one relationship
+Route::get('/post/{id}/user', function($id) {
+
+    return Post::find($id)->user->name;
 
 });
