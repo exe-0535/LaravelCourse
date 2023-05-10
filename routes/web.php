@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // to avoid pasting the same path all over again
 use App\Http\Controllers\PostsController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,7 @@ Route::get('/', function () {
 //
 
 // These two routes underneath are both used to select/read a post with id number 4.
+// Although the first one can be used to select/read all records.
 
 // Route::get('/read', function() {
 
@@ -117,4 +119,22 @@ Route::get('/read', function() {
     $post = App\Models\Post::find(4);
 
     return $post->id . ". " . $post->title;
+});
+
+Route::get('/findwhere', function() {
+
+
+    $posts = Post::where('id', 4)->orderBy('id', 'desc')->take(1)->get();
+    return $posts[0]->title;
+});
+
+Route::get('/findmore', function() {
+
+
+    // $posts = Post::findOrFail(1);
+    // return $posts;
+
+    $posts = Post::where('users_count', '<', 50)->firstOrFail();
+    return $posts;
+
 });
