@@ -172,9 +172,24 @@ Route::get('/', function () {
 
 // });
 
-Route::get('/update', function() {
+// Route::get('/update', function() {
 
-    Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'The Update Method', 'content'=>'Update method example content']);
-    
+//     Post::where('id', 4)->where('is_admin', 0)->update(['title'=>'The Update Method', 'content'=>'Update method example content']);
+
+
+// });
+
+
+Route::get('/delete', function() {
+
+    $post = Post::find(4);
+
+    $post->delete();
+
+});
+
+Route::get('/delete2', function() {
+   
+   Post::destroy([6, 7]); 
 
 });
