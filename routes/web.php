@@ -196,7 +196,7 @@ Route::get('/', function () {
 
 // Route::get('/softdelete', function() {
 
-//     Post::find(8)->delete();
+//     Post::where('id', 13)->delete();
 
 // });
 
@@ -215,8 +215,14 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/restore', function() {
+// Route::get('/restore', function() {
 
-    Post::withTrashed()->where('is_admin', 0)->restore();
+//     Post::withTrashed()->where('is_admin', 0)->restore();
+
+// });
+
+Route::get('/forcedelete', function() {
+
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 
 });
