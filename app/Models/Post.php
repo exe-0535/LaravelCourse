@@ -15,4 +15,9 @@ class Post extends Model
     // // use if primary key has other name than 'id';
     // protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'title',
+        'content'
+    ];
+
 }

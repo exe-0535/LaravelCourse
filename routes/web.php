@@ -166,3 +166,8 @@ Route::get('/', function () {
 //     $post->save();
 // });
 
+Route::get('/create', function() {
+
+    Post::create(['title'=>'The Create Method', 'content'=>'Create method example']);
+
+});
