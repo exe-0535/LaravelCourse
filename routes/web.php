@@ -200,16 +200,23 @@ Route::get('/', function () {
 
 // });
 
-Route::get('/readsoftdelete', function() {
+// Route::get('/readsoftdelete', function() {
 
-    // $post = Post::find(8);
+//     // $post = Post::find(8);
 
-    // return $post;
+//     // return $post;
 
-    return Post::withTrashed()->where('id', 8)->get();
+//     return Post::withTrashed()->where('id', 8)->get();
 
-    // withTrashed() returns all posts including trashed ones
-    // onlyTrashed() return only trashed posts
+//     // withTrashed() returns all posts including trashed ones
+//     // onlyTrashed() return only trashed posts
 
+
+// });
+
+
+Route::get('/restore', function() {
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
 
 });
