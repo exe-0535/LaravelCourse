@@ -28,3 +28,13 @@ Route::get('/insert', function () {
 
 
 });
+
+Route::get('/read', function() {
+
+    $user = User::findOrFail(1);
+
+    foreach($user->posts as $post) {
+        echo $post->title;
+    }
+
+});
