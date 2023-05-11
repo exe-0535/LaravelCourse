@@ -47,6 +47,13 @@ Route::get('/update', function() {
         $post->update(['title' => 'Updated title', 'body' => 'Updated body']);
     }
 
+});
+
+Route::get('/delete', function() {
+
+    $user = User::findOrFail(1);
+
+    $post = $user->posts()->first()->delete();
 
 
 });
