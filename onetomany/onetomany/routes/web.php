@@ -38,3 +38,15 @@ Route::get('/read', function() {
     }
 
 });
+
+Route::get('/update', function() {
+
+    $user = User::findOrFail(1);
+
+    foreach($user->posts as $post) { 
+        $post->update(['title' => 'Updated title', 'body' => 'Updated body']);
+    }
+
+
+
+});
