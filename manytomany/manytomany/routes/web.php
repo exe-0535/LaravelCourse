@@ -54,3 +54,23 @@ Route::get('/update', function() {
     }
 
 });
+
+Route::get('/delete', function() {
+
+    $user = User::findOrFail(1);
+
+    if($user->has('roles')) {
+
+        foreach($user->roles as $role) {
+
+            if($role->id == 1) {
+
+                $role->delete();
+
+            }
+    
+        }
+
+    }
+
+});
