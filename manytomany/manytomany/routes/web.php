@@ -40,3 +40,17 @@ Route::get('/read', function () {
     }
 
 });
+
+Route::get('/update', function() {
+
+    $user = User::findOrFail(1);
+
+    $i = 1;
+
+    foreach ($user->roles as $role) {
+
+        $role->update(['name' => 'Updated role name nr ' . $i]);
+        $i++;
+    }
+
+});
